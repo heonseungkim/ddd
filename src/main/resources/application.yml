@@ -1,0 +1,40 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /ddd
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  datasource:
+    username: sa
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+  sql:
+    init:
+      platform: h2
+      schema-locations: classpath*:sql/schema-${spring.sql.init.platform}.sql
+      data-locations: classpath*:sql/data-${spring.sql.init.platform}.sql
+      mode: always
+
+springdoc:
+  api-docs:
+    path: /api-docs
+    groups:
+      enabled: true
+  swagger-ui:
+    path: /doc/swagger-ui.html
+    displayRequestDuration: true
+    groups-order: DESC
+    disable-swagger-default-url: true
