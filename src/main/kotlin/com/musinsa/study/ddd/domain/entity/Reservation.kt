@@ -1,6 +1,5 @@
 package com.musinsa.study.ddd.domain.entity
 
-import com.musinsa.study.ddd.domain.value.BookStatus
 import com.musinsa.study.ddd.domain.value.ReservationId
 import com.musinsa.study.ddd.domain.value.ReservationStatus
 import jakarta.persistence.*
@@ -32,6 +31,14 @@ data class Reservation(
         reserved = LocalDateTime.now(),
         status = ReservationStatus.ON_RESERVATION,
     ) {
+        if (book.isAvailable()) {
+            throw IllegalStateException("대여 가능한 상태이므로 예약이 불가한 도서입니다.")
+        }
         book.reservations.add(this)
     }
+
+    fun cancel() {
+        this.status = ReservationStatus.CANCELED
+    }
+
 }

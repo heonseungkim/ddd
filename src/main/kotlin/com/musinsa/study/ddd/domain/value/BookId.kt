@@ -6,6 +6,6 @@ import java.io.Serializable
 
 @Embeddable
 data class BookId(
-    @Column(name = "book_id", nullable = false, unique = true)
+    @Column(name = "book_id", nullable = false)
     val value: Long,
 ) : Serializable

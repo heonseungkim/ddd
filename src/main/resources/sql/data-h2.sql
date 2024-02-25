@@ -15,4 +15,4 @@ insert into member
 insert into reservation
     (`reservation_id`, `member_id`, `book_id`, `reserved`, `status`) values
     (1, 2, 2, '2024-02-19 00:00:00', 'CANCELED'),
-    (2, 3, 2, '2024-02-20 00:00:00', 'ON_RESERVE');
+    (2, 3, 2, '2024-02-20 00:00:00', 'ON_RESERVATION');

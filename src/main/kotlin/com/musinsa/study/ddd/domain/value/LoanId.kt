@@ -5,7 +5,7 @@ import jakarta.persistence.Embeddable
 import java.io.Serializable
 
 @Embeddable
-data class MemberId(
-    @Column(name = "member_id", nullable = false)
+data class LoanId(
+    @Column(name = "loan_id", nullable = false, unique = true)
     val value: Long,
 ) : Serializable
